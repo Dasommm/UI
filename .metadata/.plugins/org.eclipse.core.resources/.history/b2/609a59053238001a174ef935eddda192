@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+
+body{
+
+	background-color: green;
+}
+
+td{
+	background-color: lightgreen;
+	border-radius: 10%;
+}
+
+</style>
+
+
+</head>
+<body>
+
+	<form action="">
+	<fieldset>
+		<legend>로그인 정보</legend>
+		<table>
+			<tr>
+				<td>1.아이디</td>
+				<td><input type = "text"></td>
+			</tr>
+			<tr>
+				<td>2.비밀번호:</td>
+				<td><input type = "text"></td>
+			</tr>
+			<tr>
+				<td>3. 비밀번호 확인</td>
+				<td><input type = "text"></td>
+			</tr>
+			<tr>
+				<td>4. 회원등급</td>
+				<td><input type = "text" value = "준회원"></td>
+			</tr>		
+		</table>		
+	</fieldset>
+	<fieldset>
+		<legend>개인정보</legend>
+		<table>
+			<tr>
+				<td>1.이름</td>
+				<td><input type = "text" placeholder="5자미만 공백없이"></td>
+			</tr>
+			<tr>
+				<td>2.메일주소</td>
+				<td><input type = "text" placeholder="abcd@somain.com"></td>
+			</tr>
+			<tr>
+				<td>3.연락처</td>
+				<td><input type = "text"></td>
+			</tr>		
+		</table>		
+	</fieldset>
+	<fieldset>
+		<legend>코딩숙련도(상,중,하)</legend>
+		<table>
+			<tr>
+				<td>1.<input type = "range"></td>
+			</tr>		
+		</table>		
+	</fieldset>
+	<input type= "button" value="제출" id = "sss">
+	
+	</form>
+
+
+</body>
+</html>

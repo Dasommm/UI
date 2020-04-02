@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        img{width: 200px; height: 200px;}
+        .addsize{width: 300px; height: 300px;}
+        .onoffimg{display: none;}
+
+    </style>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $("#btn").click(function(){
+                $("img").toggleClass("onoffimg");   // 클릭을 하는 순간 onoffimg의 속성이 생긴다
+            });                                     //addClass와 removeClass 두개를 반복하는 것 
+
+            $("img").click(function(){
+                if($(this).hasClass("addsize")){    // 클릭한 이미지가 해당 클래스(addsize)가 있는지 확인한다
+                    $(this).removeClass("addsize").attr("title","이미지 축소"); //해당 class 속성을 없애준다
+                }else{
+                    $(this).addClass("addsize").attr("title","이미지 확대");    //해당 class 속성을 추가한다
+                }
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+    <button id="btn">이미지 on/off</button>
+    
+    <br>
+    <img src="image/img01.png" alt="img01" title="이미지1번">
+    <img src="image/img02.png" alt="img02" title="이미지2번">
+    <img src="image/img03.png" alt="img03" title="이미지3번">
+
+</body>
+</html>

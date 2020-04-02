@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>1. 기본테이블 만들기	</h1>
+	<table border ="1" style = "width : 300px;">
+		<tr style ="background-color : gray;">
+			<th>컬럼 1</th>
+			<th>컬럼 2</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+		
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>4</td>
+		
+		</tr>
+			
+	</table>
+
+	<h1>2.주요 태그 사용</h1>
+
+	<table border ="1">
+		<caption>테이블 제목</caption>
+		<colgroup>
+			<col width =100px;/>
+			<col width =200px;/>
+			<col width = 300px;/>
+		</colgroup>
+		
+	<tfoot>
+		<tr>
+			<td>A</td>
+			<td>B</td>
+			<td>C</td>
+		</tr>
+	
+	</tfoot>	
+		
+		<thread>
+			<tr>
+				<th>컬럼 1</th>
+				<th>컬럼 2</th>
+				<th>컬럼 3</th>
+			</tr>		
+			
+		</thread>
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>
+		
+		<tr>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+		</tr>
+		
+		<tr>
+			<td>7</td>
+			<td>8</td>
+			<td>9</td>
+		</tr>
+	</tbody>
+			
+	</table>
+
+<hr>
+
+<h1>테이블 셀 병함</h1>
+	<table border = "1">
+		<caption>병합 테이블</caption>
+		<thread>
+			<tr>
+				<th>컬럼 1</th>
+				<th>컬럼 2</th>
+				<th>컬럼 3</th>
+				<th>컬럼 4</th>
+			</tr>
+		</thread>
+		<tbody>
+			<tr>
+				<td rowspan = "2">1 : 세로 (열) 합치기</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>		
+			<tr>
+				<td>6</td>
+				<td colspan = "2">7 : 가로(행)합치기</td>
+			</tr>	
+		
+		</tbody>
+		
+		<tfoot>
+			<tr>
+				<td colspan = "4"> 가로(행)합치기</td>
+			</tr>			
+		</tfoot>
+	</table>
+<!-- 반응형 웹 찾아보기 -->
+</body>
+</html>

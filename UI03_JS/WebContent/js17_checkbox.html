@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+    
+        #colorbox{
+            width : 320px;
+            height: 320px;
+            position: relative;
+        }
+        #red, #green, #blue, #black{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        #green{left: 160px;}
+        #blue{top: 160px;}
+        #black{left: 160px; top: 160px;}
+
+    </style>
+
+<script type="text/javascript">
+
+    function selectColor(){
+        var chks = document.getElementsByName("chk");   //chk의 이름을 가진 노드의 노드리스트
+        for(var i = 0 ; i <chks.length ; i++){  //chk 이름 가진 애들 0번지부터 그 끝까지
+            if(chks[i].checked){    //chk[0]~chk[length]가 체크되어있다면
+                document.getElementById(chks[i].value).style.backgroundColor = chks[i].value;  //해당 chk가 가진 value를 background로 보여줘라
+            }else{
+                document.getElementById(chks[i].value).style.backgroundColor ="";  // 그렇지 않다면 white로 보여줘라
+            }
+        }
+    }
+    function clearColor(){
+        var colorbox = document.querySelectorAll("#colorbox > div"); //css표현식으로, 컬러박스라는 아이들을 가진 ('>'자식요소)
+        for(var i = 0; i < colorbox.length; i++){
+            colorbox[i].style.backgroundColor="";
+
+        }
+        allCheck(false);
+        document.getElementsByName("all")[0].checked = false;
+
+
+
+        /*
+        var chks = document.getElementsByName("chk");
+        for(var i = 0; i <chks.length ; i++){
+            if(chks[i].checked){    //체크되어있다면
+                document.getElementById(chks[i].value).style.backgroundColor = "white"; //해당 노드의 background를 white로 보여줘라
+            }else{
+                document.getElementById(chks[i].value).style.backgroundColor = "none"; //체크되어있지 않으면 none
+            }
+        }
+        */
+    }
+    function allCheck(check){
+        //아래의 코드에서 true나 false를 가져온다
+        var chks = document.getElementsByName("chk");
+        for( var i = 0; i <chks.length ;i++){
+            chks[i].checked = check;
+            // 넘어온 값과 chks들의 값을 같게 해준다
+        }
+    }
+
+</script>
+
+</head>
+<body>
+
+<div id = "colorbox">
+    <div id = "red">RED</div>
+    <div id = "green">GREEN</div>
+    <div id = "blue">BLUE</div>
+    <div id = "black">BLACK</div>    
+</div>    
+<div id = "base">
+    <form>
+        <input type="checkbox" name = "all" onclick="allCheck(this.checked);">전체선택 <br>
+        <!-- 체크 되어있으면 checked 속성은 true 아니면 false가 리턴된다-->
+
+        <input type="checkbox" name="chk" value="red">RED <br>
+        <input type="checkbox" name="chk" value="green">GREEN <br>
+        <input type="checkbox" name="chk" value="blue">BLUE <br>
+        <input type="checkbox" name="chk" value="black">BLACK <br>
+
+        <input type="button" value="select" onclick="selectColor();">;
+        <input type="button" value="clear" onclick="clearColor();">;
+    </form>
+</div>
+
+</body>
+</html>

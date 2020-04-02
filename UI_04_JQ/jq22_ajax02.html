@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="js/create_table.js"></script>
+
+<script type="text/javascript">
+
+    $(function(){
+        $("#emp_search").click(function(){
+            $.ajax({
+                url:"emplist.xml",
+                dataType:"xml", //응답되는 타입은 xml
+                success: function(data){ //이 응답되는 것은 data로 온다
+                    var empRowList=$(data).find("ROW"); //찾아진 애들이 배열로 온다(ROW로)
+                    $("body").append(makeTable(empRowList));
+
+                },
+                error:function(){
+                    alert("통신실패");
+                }
+            });
+        });
+    });
+
+
+
+
+</script>
+
+</head>
+<body>
+
+    <h1>데이터 가져오기</h1>
+
+    <fieldset>
+        <legend>사원 전체 조회</legend>
+        <input type="button" value="조회" id="emp_search">
+    </fieldset>
+    
+</body>
+</html>

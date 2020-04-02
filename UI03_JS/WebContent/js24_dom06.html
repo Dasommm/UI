@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    
+    function tableVal(){
+        var doc = document.forms[0] // form의 0번지에 있는 도큐먼트를 가져온다 
+        var vals = [doc.id.value, doc.pw.value, doc.addr.value, doc.phone.value];
+
+        // 유효성 검사
+        for(var i = 0 ; i < vals.length; i++){
+            if(vals[i] == null || vals[i] == "" || vals[i] == undefined){
+                alert("모두 다 입력해 주세요");
+                return; //함수 자체를 빠져나간다
+            }
+        }
+        document.getElementById("addtr").appendChild(createRow(vals));
+    }
+    function createRow(vals){
+        var tr = document.createElement("tr");
+        for(var i = 0 ; i < vals.length ; i++){
+            var td = document.createElement("td");
+            td.textContent = vals[i];
+            tr.appendChild(td);
+        }
+        var delTd = document.createElement("td");
+        delTd.innerHTML = "<input type = 'button' value = '삭제' onclick = 'delRow(this);'>";
+        tr.appendChild(delTd);
+
+        return tr;
+    }
+    function deleteVal(){
+        //hasChildNodes()
+        //removeChild()
+        //lastChild
+        var tbody = document.getElementById("addtr");   // tbody안에 모든 내용을 지울 것이기 때문에
+        while(tbody.hasChildNodes()){   //childnode가 있는지 없는지
+            tbody.removeChild(tbody.lastChild);
+        }
+    }
+    function delRow(ele){   //해당 행만 삭제
+        //parentNode
+        //input타입을 감싸고 있는 td를 갖고있는 tr을 찾아서 removeChild
+        var tr = ele.parentNode.parentNode; //input -> td-> tr
+        document.getElementById("addtr").removeChild(tr);   //tbody에서 해당열을.removeChild
+    }    
+    </script>
+
+</head>
+<body>
+
+    <form >
+        <table id="intable">
+            <tr>
+                <td>아이디 :</td>
+                <td><input type="text" name = "id"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" name="pw"></td>
+            </tr>
+            <tr>
+                <td>주소 :</td>
+                <td><input type="text" name="addr"></td>
+            </tr>
+            <tr>
+                <td>전화번호 :</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+        </table>
+        <input type="button" value="추가" onclick="tableVal();">
+        <input type="button" value="삭제" onclick="deleteVal();">
+    </form>
+
+    <div id="addtable">
+        <table id="ctb" border="1">            
+            <col width = "100px">
+            <col width="100px">
+            <col width="300px">
+            <col width="100px">
+            <col width="100px">
+            <thead>
+                <tr>
+                    <th>아이디</th>
+                    <th>비밀번호</th>
+                    <th>주소</th>
+                    <th>전화번호</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody id = "addtr"></tbody>
+        </table> 
+    </div>    
+</body>
+</html>

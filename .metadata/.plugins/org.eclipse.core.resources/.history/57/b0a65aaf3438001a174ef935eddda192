@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header>
+		HTML5&CSS
+		<nav>
+			<ul>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>JAVASCRIPT</li>
+				<li>JQUERY</li>
+				<li>HTML5 API</li>
+			</ul>
+		</nav>
+	</header>
+	<hr>
+	<section>
+	이 영역은 소제목과 내용으로 구성되는 영역입니다.
+		<article>
+			<img alt="img" src="resources/images/flower1.jsp">
+		</article>
+	
+	</section>
+	<hr>
+	<footer>
+	
+	</footer>
+
+
+</body>
+</html>

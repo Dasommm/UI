@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+
+        *{
+            border: 1px dotted red;;
+        }
+        
+        #navi {
+            list-style: none;
+            float: left;
+            background-color: brown;
+        }
+
+        div{
+            background-color: darkmagenta;
+        }
+        
+        .navi2 {
+            display: none;
+        }
+        a:link{
+            text-decoration: none;
+        }
+
+        a:hover{
+            color: red;
+        }
+
+        #navi>li {
+            display: inline;
+            color: white;
+        }
+
+        .menu:hover{
+            transition: all ease-in 1s ;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>서브 메뉴가 펼쳐지는 네비게이션 만들기</h2>
+    <hr>
+        <ul id="navi">
+            <li><a href="#">HOME</a></li>
+            <li class="menu"><a href="#">웹개발</a></li>
+            <ul class="navi2">
+                <li><a href="#">웹디자인</a></li>
+                <li><a href="#">HTML% + CSS3</a></li>
+                <li><a href="#">JQuery</a></li>
+                <li><a href="#">웹+모바일</a></li>
+            </ul>
+            <li class="menu"><a href="#">게시판</a></li>
+            <ul class="navi2">
+                <li><a href="#">Q & A</a></li>
+                <li><a href="#">방명록</a></li>
+            </ul>
+            <li><a href="views/test/productForm.html">상품주문서</a></li>
+        </ul>
+</body>
+
+</html>
+    
+</body>
+</html>

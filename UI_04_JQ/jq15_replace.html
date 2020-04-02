@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+    $(function(){
+        $("button:first").click(function(){ //replaceWith(new Content 또는 function())
+            // target(변환될 엘리먼트) 앞에 온다
+            $("p").replaceWith("<p><b>replaceWith 메서드</b></p>");
+        });
+        $("button:last").click(function(){  //replaceAll(target) -> 둘은 비슷하지만 타겟과 소스가 반대로 되어있다(function은 들어갈 수 없다)
+            // target 뒤에 온다
+            $("<p><b>replaceAll 메서드</b></p>").replaceAll("p");
+        });
+
+    });
+
+
+    </script>
+
+</head>
+<body>
+    <div>
+        <p>DOM 대체</p>
+    </div>
+    <button>바꾸기(replaceWith)</button>
+    <button>바꾸기(replaceAll)</button>
+
+</body>
+</html>

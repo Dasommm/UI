@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+*{
+	border: 1px dotted red;
+}
+
+img{
+	width: "100px";
+	height: "100px";
+}
+
+form{
+	position : "right";
+	
+}
+a{
+	margin: "100px";
+}
+
+#content{
+	width: "100%";
+	height: "400px";
+	background-color: "gray";
+}
+
+address{
+	align-content: "center";
+	background-color: "skyblue";
+}
+
+footer{
+	width: "100%";
+	height: "80px";
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+	<header>
+		<div id = "logo">
+		<img alt="image1" src="resources/images/logo.gif" width="100px" height="100px">		
+		</div>
+		<div id = "form1">
+		<form action="#">
+			<table border="1">
+				<tr>
+					<td>ID</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td><input type="text"></td>
+				</tr>				
+			</table>
+			<input type="submit" value ="로그인">
+			<input type="button" value = "회원가입">
+		</form>
+		</div>
+	
+		<nav>
+		<a href="#">메인</a>
+		<a href="#">공지사항</a>
+		<a href="#">자유게시판</a>
+		<a href="#">갤러리</a>
+		<a href="#">회원관리</a>
+		<a href="#">채팅하기</a>		
+		</nav>
+	</header>
+
+	<section id="content">
+	</section>
+	
+	<footer>
+		<address>Copyright © 1998-2019 KH Information Educational Institute All Right Reserved</address>
+	</footer>
+	
+</body>
+</html>

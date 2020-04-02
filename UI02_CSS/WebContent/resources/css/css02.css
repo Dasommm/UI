@@ -1,0 +1,100 @@
+/*얘는 만들 때 other -> css file로 만들었다.*/
+@charset "utf-8";
+
+/* 타입 선택자 */
+pre {
+	text-align : center;
+}
+
+/* id 선택자 */
+/* id는 유일한 하나, #으로 구분한다. */
+#sid01{
+	color : red;
+}
+#sid02{
+	color : blue;
+}
+#sid03{
+	background-color : green;
+	color : white;
+}
+
+/* class 선택자 */
+/* 공통적으로 여러개에 적용할때, .으로 구분한다. */
+.scls{
+	color : green;
+}
+
+/*전체 선택자
+*{
+	text-align :right;
+}
+*/
+
+/* 자식 선택자 */
+#atc> p{
+	color: rgb(211, 192, 255);
+}
+
+#atc>div>p{
+	background-color :gold;
+}
+
+/*인접 선택자*/
+h3 + b {
+	color: silver;
+}
+
+span + b{
+	background-color: purple;
+	color: white;
+}
+
+/* 속성 선택자 */
+p[title]{
+	background-color: yellow;
+}
+
+p[title ='b']{
+	color: red;
+}
+
+/*가상클래스 선택자*/
+a:link{
+	color: green;
+	font-size: 20pt;
+}
+a:visited{
+	color: aqua;
+	font-size: 15pt;
+}
+a:hover{
+	background-color: hotpink;
+	font-family: fantasy;
+	font-size: 25pt;
+}
+a:active{
+	color: red;
+}
+input:checked {
+	width: 100px;
+	height: 100px;
+}
+/*종속 선택자*/
+li.scls01{
+	background-color: lime;
+}
+li.scls02#sidul01{
+	font-size: 25pt;
+} 
+/*하위 선택자*/
+div span{
+	background-color: maroon;
+	color: white;
+}
+/*그룹 선택자*/
+h3,p,pre,strong {
+	color: chocolate;
+}
+
+

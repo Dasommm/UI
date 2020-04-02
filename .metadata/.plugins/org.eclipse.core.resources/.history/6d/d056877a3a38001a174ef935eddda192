@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="\testw" method="post">
+		<fieldset>
+			<legend>납품자정보</legend>
+			<table>
+				<ol>
+				  <li>납품자명 :<input type= "text" placeholder="name"> </li>
+				  <li>email :<input type= "text" placeholder="answer@naver.com"> </li>
+				  <li>홈페이지 :<input type= "text" autocomplete="url"> </li>
+				</ol>
+			</table>		
+		</fieldset>
+		<fieldset>
+			<legend>납품정보</legend>
+			<table>
+				<ul>
+				  <li>상품명 : <input type ="text"></li>
+				  <li>납품수량 : <input type = "text"> </li>
+				  <li>납품등급 : <input type = "range"> </li>
+				  <li>기타사항 : <textarea rows="2" cols="10"></textarea> </li>
+				</ul>
+			</table>		
+		</fieldset>
+	<input type="submit" value ="send message">	
+	</form>
+
+</body>
+</html>

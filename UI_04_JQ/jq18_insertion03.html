@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+    div{
+        border: 1px solid red;
+    } 
+
+    </style>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+
+        $(function(){
+            //tager 바로 앞 또는 target바로 뒤에 붙는다
+            $("button:eq(0)").click(function(){
+                //target이 앞에 뒤에 insert할 컨텐츠
+                $("#base").after("<div> 새로운 엘리먼트(after)</div>");
+            });
+
+            $("button:eq(1)").click(function(){
+                // insert할 컨텐츠가 앞에 target이 뒤에
+                $("<div>새로운 엘리먼트(insertAfter)</div>").insertAfter("#base");
+            });
+            // 똑같이 동작하지만 content와 target의 위치만 다르다
+            
+            $("button:eq(2)").click(function(){
+                $("#base").before("<div>새로운 엘리먼트(before)</div>");
+            });
+
+            $("button:eq(3)").click(function(){
+                $("<div>새로운 엘리먼트(insertBefore)</div>").insertBefore("#base");
+            });
+    
+        });
+    
+
+    </script>
+</head>
+<body>
+
+    <button>after()</button>
+    <button>insertAfter()</button>
+    <button>before()</button>
+    <button>insertBefore()</button>
+
+    <div id="base">
+        <p>외부 삽입 메서드</p>
+    </div>
+    
+</body>
+</html>

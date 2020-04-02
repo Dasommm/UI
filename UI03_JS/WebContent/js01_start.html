@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부작성방식 (import 같은 개념)-->
+<script type="text/javascript" src="js/test.js"></script>
+
+<script type="text/javascript">
+	//내부 작성방식
+function embeddedTest(){
+	var doc = document.getElementsByTagName("li")[1];
+	doc.style.color ="red";
+	doc.innerHTML = "<strong> 글자가 바뀌었습니다.</strong>";
+}
+</script>
+
+</head>
+<body>
+
+	<h1> 자바스크립트 작성방식 3가지</h1>
+
+	<ol>
+		<li onclick="alert('inline');">inline 방식</li>
+		<li onclick = "embeddedTest();">내부 작성방식</li>
+		<!-- onclick뒤에는 자바스크립트 영역, 위의 function에도 자바스크립트, 따라서 불러올 수 있다. -->
+		<li onclick = "test();">외부 작성 방식(링크)-*.js</li>
+	</ol>
+
+
+</body>
+</html>

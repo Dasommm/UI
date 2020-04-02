@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    
+    function strTest01(){
+        var str01 = "String";
+        var str02 = "Test";
+
+        var str03 = str01 + str02;
+        alert(str03);
+
+        //concat()
+        var str04 = str01.concat(str02,"java","script");
+        alert(str04);
+
+    }
+    function strTest02(){
+        var num = 12.5;
+        var bool = true;
+        var result = "String :" + num + bool;
+        alert(result + ":" + typeof(result));   //문자열이랑 만나면 문자로 된다.
+    }
+    function strTest03(){
+        var span = document.getElementById("res");
+        
+        var str = prompt("이름을 입력해 주세요");
+    
+        //동등연산자 ==
+        if(str=="kh"){
+            span.textContent = str + "님, 환영합니다.";
+
+        }else if(str =="kh 정보교육원"){
+            span.textContent = str +"님, 환영합니다";
+        }else{
+            span.textContent = "이름을 확인해 주세요";
+        }
+
+        //동등 연산자를 사용하면, 비교하는 자료형이 자동으로 형 변환된다.
+        var num = 10;
+        if(num == "10"){
+            alert("==연산자 사용. 숫자 10이 맞습니다");
+        }else{
+            alert("==연산자 사용. 숫자 10이 아닙니다");
+        }
+
+        // === : 엄격한 비교(자동 형 변환이 일어나지 않음)
+        // !==: 같지 않다
+        if(num ==="10"){
+            alert("===연산자 사용 : 숫자 10이 맞습니다");
+        }else{
+            alert("=== 연산자 사용 : 숫자 10이 아닙니다.");
+        }
+
+        var strObj = new String("kh");  //객체
+        var strLiteral = "kh";  //값(string)
+
+        if(strObj == strLiteral){
+            alert("문자가 같다");
+        }else{
+            alert("문자가 다르다");
+        }
+        if(strObj === strLiteral){
+            alert("문자가 같다" + typeof(strObj) + "," + typeof(strLiteral));
+        }else{
+            alert("문자가 다르다" + typeof (strObj) + "," + typeof (strLiteral));
+           
+        }
+
+    }
+    function strTest04(){
+        var str = "홍길동 이순신 김선달 유재석 강호동 홍길동";
+        var prop = prompt("검색할 이름 입력");
+
+        //indexOf : 왼쪽 -> 오른쪽으로 검색(첫번째 인덱스 반환) 0부터 시작
+        alert("indexOf :" + str.indexOf(prop));
+        //lastIndexOf : 오른쪽 -> 왼쪽으로 검색(첫번째 인덱스 반환)
+        // 만일, 검색하는 값이 존재하지 않으면 -1 반환
+        alert("lastIndexOf :" + str.lastIndexOf(prop));
+
+    }
+    function strTest05(){
+        var str ="문자열 추출하기. 관련 메소드 :indexOf, substring.";
+        var startIndex = str.indexOf(":");
+        var endIndex = str.lastIndexOf(".");
+        var res = str.substring(startIndex+1, endIndex);    //+1을 하는 이유는 :을 빼고싶어서
+        alert(res);
+
+        var splitRes = res.split(",");  //잘라서 배열로 리턴
+        alert(splitRes[0]);
+        alert(splitRes[1]);
+
+    }
+    function strTest06(){
+        var prop = prompt("쉼표로 구분하여 키워드를 입력하세요","ex) 사과, 바나나, 키위, 귤, 수박");
+        //prompt 에서 취소를 누르면 null값이 리턴된다
+        var propArr = prop.split(",");
+        /*document.getElementById("key").innerHTML = propArr[0] + "<br>";
+        document.getElementById("key").innerHTML += propArr[1] + "<br>";
+        document.getElementById("key").innerHTML += propArr[2] + "<br>";
+        document.getElementById("key").innerHTML += propArr[3] + "<br>";
+        document.getElementById("key").innerHTML += propArr[4] + "<br>";   
+        */
+
+        //반복적으로 propArr이라는 배열에 있는 값을 가지고 와서 key라는 id를 가진 node에 추가하자
+        var res = "";
+        for(var i =0 ; i < propArr.length; i++ ){
+            res+= propArr[i]+"<br>";
+        }
+            document.getElementById("key").innerHTML =res;
+
+        /*
+        for (var i = 0; i < propArr.length; i++) {
+            document.getElementById("key").innerHTML +=propArr[i] + "<br>";
+            //getElementById가 배열의 길이만큼 생긴다
+            이런경우 처음부터 끝까지 계속 dom탐색을 하기 때문에 시간이 오래걸린다
+            따라서 최대한 최소화해서 하게 하는게 좋다. 위의 코드처럼 한번만 돌게끔 하는게 좋다
+        }
+        */
+
+    }
+
+    </script>
+</head>
+<body>
+    
+    <p>문자열 합치기
+        <button onclick="strTest01();">클릭</button>
+    </p>
+
+    <p>다른 자료형 합치기
+        <button onclick="strTest02();">클릭</button>
+    </p>
+
+    <p>문자열 비교하기
+        <button onclick="strTest03();">클릭</button>
+        <span id="res"></span>
+    </p>
+
+    <p>문자열 검색하기
+        <button onclick="strTest04();">클릭</button>
+    </p>
+
+    <p>문자열 추출하기
+        <button onclick="strTest05();">클릭</button>
+    </p>
+
+    <p>키워드 나누기
+        <button onclick="strTest06();">클릭</button>
+        <br><br>
+        <span id ="key"></span>
+    </p>
+
+
+
+</body>
+</html>

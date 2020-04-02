@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+#navi{
+	list-style: none;
+	float: left;
+	}
+
+li{
+	display: none;
+
+}
+
+
+
+</style>
+
+
+
+</head>
+<body>
+
+
+	<h2>서브 메뉴가 펼쳐지는 네비게이션 만들기</h2>
+	<hr>
+	<ul id = "navi">
+		<li><a href ="#">HOME</a></li>
+		<li><a href ="#">웹개발</a></li>
+			<ul>
+			<li><a href="#">웹디자인</a></li>
+			<li><a href="#">HTML% + CSS3</a></li>
+			<li><a href="#">JQuery</a></li>
+			<li><a href="#">웹+모바일</a></li>
+			</ul>						
+		<li><a href = "#">게시판</a></li>
+			<ul>
+			  <li><a href = "#">Q & A</a></li>
+			  <li><a href = "#">방명록</a></li>
+			</ul>
+		<li><a href ="views/test/productForm.html">상품주문서</a></li>
+	</ul>
+
+</body>
+</html>

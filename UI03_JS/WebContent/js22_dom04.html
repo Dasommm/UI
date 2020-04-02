@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+    img{
+        vertical-align: middle;
+        width : 300px;
+        height: 300px;
+    }
+    a{
+        font-size: 40pt;
+        text-decoration: none;
+    }    
+    </style>
+
+    <script text="text/javascript">
+    
+    window.onload =function(){  //window가 load되었을때 function을 실행한다
+        var anchs = document.querySelectorAll("a");
+        var img = document.querySelector("img");
+        var count = 1;
+
+
+        anchs[0].onclick = function(){
+            var imgAlt = img.getAttribute("alt");
+            if(imgAlt == "img1"){
+                count =5;
+                img.setAttribute("alt","img5");
+                img.setAttribute("src","image/img5.png")
+            }else{
+                count--;
+                img.setAttribute("alt","img" + count);
+                img.setAttribute("src","image/img"+count + ".png");
+            }
+
+
+        }
+        anchs[1].onclick = function(){
+            count++;
+            if(count >5){
+                count=1;
+
+            }
+            img.setAttribute("alt","img"+count);
+            img.setAttribute("src","image/img"+count + ".png"); 
+
+        }
+
+    }
+    
+    </script>
+
+</head>
+<body>
+    <div>
+        <a href="#" id="lt">◀</a>
+        <img src="image/img1.png" alt="img1">
+        <a href="#" id="rt">▶</a>
+    </div>
+
+
+    
+</body>
+</html>

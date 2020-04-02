@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+    
+        $(function () {
+            //form에서 submit 이벤트가 발생하면 실행!
+            $("#signal").submit(function () {
+                if ($(".inforbox").val() == null || $(".infobox").val() == "") {
+                    $(".error").show()
+                    return false;  //이벤트 전파막기
+                }
+            })
+
+            $("#confirm").click(function(){
+                $("#result").empty();
+    
+                if($("input[name=chk]:checked").length ==0){
+                    alert("하나 이상 체크해주세요");
+                }else{
+                    var res = 0;
+                    $("input[name=chk]:checked").each(function(i){  //iterator한 값을 하나하나 꺼내온다
+                        //var chk = $("input[name=chk]:checked").eq(i); //아래와 동일하다
+                        var chk = $(this);  //checked된 애들 중에서 반복되고 있는 i번지의 하나
+                        var book = chk.next().text();   //chk의 옆에 있는 b태그가 가지고 있는 text를 가져온다
+                        var price = chk.val();  //chk의 value를 가져온다
+                        $("#result").append(book +":가격" +price+"<br>");
+                        res+= price;
+                    });
+                    $("#result").append("총 가격 : "+res);
+                }
+            });
+
+            $("input[name=chk]").click(function(){
+                if($("input[name=chk]").length == $("input[name=chk]:checked").length){
+                    $("input[name=all]").prop("checked",true);
+                }else{
+                    $("input[name=all]").prop("checked",false);
+                }
+            });
+
+
+        });
+
+        /*
+        attr("attrName") / prop("attrName")
+        .attr() : HTML의 속성("attribute")을 취급   //check를 했을때 뒤에 check =checked로 생긴다 (해당태그에 직접 속성값을 준다)
+        .prop() : JavaScript 객체의 속성("property")을 취급   // check를 해도 다른게 생기지 않는다(객체의 속성)
+        */
+
+        function allChk(bool){
+            $("input[name=chk]").each(function(){
+                $(this).prop("checked",bool);   // 위의 bool과 같은 bool(false or true)로 바꿔줌
+            });
+        }    
+
+    </script>
+</head>
+
+<body>
+    <form action="" id="signal" method="get">
+        <div>
+            <span class="label">User ID</span>
+            <input type="text" class="infobox" name="userid">
+            <span class="error" hidden="" style="color:red">반드시 입력하세요</span>
+        </div>
+        <input type="submit" class="submit" value="입력">
+    </form>
+
+    <hr />
+    <fieldset style="width: 300px;">
+        <legend>체크 여부 확인</legend>
+        <input type="checkbox" name="all" onclick="allChk(this.checked);">전체선택<br />
+
+        <input type="checkbox" name="chk" value="20000" /><b>java</b><br />
+        <input type="checkbox" name="chk" value="30000" /><b>jquery</b><br />
+        <input type="checkbox" name="chk" value="40000" /><b>spring</b><br />
+
+        <input type="button" value="확인" id="confirm"><br />
+        <span>선택한 책 가격</span>
+        <div id="result"></div>
+
+    </fieldset>
+
+
+
+</body>
+
+</html>

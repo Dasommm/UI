@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        a>img{
+            width: 50px;
+            height: 50px;
+        }
+        #gallery{
+            width: 200px;
+            height: 200;
+        }
+        p{
+            width: 350px;
+            height: 250px;
+        }
+        img{
+            vertical-align: middle;
+        }
+        a{
+            text-decoration: none;
+        }
+    
+    
+    </style>
+    <script type="text/javascript">
+        var num = 1;
+
+        function prevGallery(){
+            num--;
+            if(num <0){
+                num =5;
+            }
+            document.getElementById("gallery").src = "image/img"+ num+ ".png";
+
+            return false;   //이벤트 전파 막기
+        }
+        function nextGallery(){
+            num++;
+            if(num >5){
+                num =0;
+            }
+            document.getElementById("gallery").src = "image/img"+num+".png";
+
+            return false;
+        }
+    
+    
+    </script>
+
+    <div id = "gallerywrap">
+        <p>
+            <a href="http://www.naver.com" onclick="return prevGallery();">
+            <img src="image/arrowleft.png" alt="이전그림"/>
+            </a>
+
+            <img src="image/img1.png" alt="갤러리 그림" id="gallery">
+
+            <a href="#next" onclick="nextGallery();">
+                <img src="image/arrowright.png" alt="다음그림">
+            </a>
+
+
+        </p>
+
+
+    </div>
+
+
+
+</head>
+<body>
+
+
+    
+</body>
+</html>

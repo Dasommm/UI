@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>화이팅!</title>
+
+<script type="text/javascript">
+	
+	function answer01(){
+		var num = document.getElementById("q01_num").value;
+		if(!isNaN(num)){	//숫자가 아니라면(!) 숫자인지 아닌지(isNaN)
+			alert("숫자가 맞습니다")
+		}else{
+			alert("숫자가 아닙니다")
+		}	
+	}
+
+	function answer02(){
+		var nameList = document.getElementById("nameList").innerHTML; //innerHTML이니까 태그 안의 내용들만 가져올것이다.
+		var inputName = document.getElementsByTagName("input")[1].value;	//안에 아무것도 데리고올 애가 없어서 input을 가져왔다. 얘는 1번지에 있음
+		
+		if(nameList.indexOf(inputName) != -1){ //-1을 리턴하면 그 안에 값이 없음을 나타낸다
+			alert("이름이 있습니다.");
+		}else{
+			alert("이름이 없습니다.");
+		}
+	}	
+
+	function answer03(){
+		var rdos = document.getElementsByName("rdo");	// 가져온 애들의 타입은 Object로 불러와질것이다.(Nodelist로)
+
+		for(var i = 0 ; i < rdos.length; i++){
+			if(rdos[i].checked){
+				url = "https://www."+rdos[i].value+".com";
+				window.open(url,"","width = 300, height = 300");// 뒤에 아무 값을 주지 않을 경우 새 탭으로 열린다
+			}
+		}
+
+		/*if(rdos[0].value == "naver"){
+			window.open("https://www.naver.com","","");
+		}else if(rdos[1].value == "google"){
+			window.open("https://www.google.com","","");
+		}else{
+			window.open("https://www.w3schools.com/","","");
+		}
+		*/
+	}
+
+	function answer04(bool){
+		var subjects = document.getElementsByName("subject");
+		for(var i = 0; i<subjects.length ; i++){
+			subjects[i].checked = bool;
+		}	
+	}
+
+	function answer05(){
+		var rnum = Math.floor(Math.random()*20+1);	//최대 + 최소
+		document.getElementById("randomInput").value = rnum;
+
+		//var rinput = document.getElementById("randomInput");
+		//var rnum = Math.floor(Math.random() * 20 + 1);		
+		//rinput.value=rvalue;
+
+	}
+
+	function answer06(){
+		var selc = document.getElementById("locationSelect");
+		//var idx = selc.selectedIndex;
+		//var val = selc.options[idx].value; 내가 짠 틀린 코드
+
+		var url = "";
+		for(var i = 0; i <selc.length;i++){
+			if(selc[i].selected){
+				url = selc[i].value;
+			}
+		}
+		location.href = "http://www."+url+".com";
+	}
+
+	function answer07(){
+	//	var arrObj = new Array(1, 4, 2, 3, 11, 32, 27, 5);
+	//	var res = arrObj.sort(compareNum);
+	//	alert(res);
+	//}
+	//function compareNum(a,b){
+	//	return a-b;			내가 짠 코드(맞음)
+
+		var numVal = document.getElementById("numVal").innerHTML;	//문자열로 가져와진다.
+		var numList = numVal.split(",");	// num list안에 들어가있는 배열의 타입은 String이다.
+		numList.sort(function(a,b){
+			return a-b; //=> 이렇게 해주는 경우 저절로 타입 추론을 해줘서 숫자로 정렬된다
+		}); //=> 그냥 sort만 할 경우 문자열기준으로 정렬
+		alert(numList); 
+	}
+
+	function answer08(){
+		var inputdate = document.getElementById("startDate").value;
+		var now = new Date(inputdate);	// 입력한 값을 Date로 새로운 객체를 만들어준다
+		var today = new Date();
+
+		var result = Math.floor((today.getTime() -now.getTime())/(1000*60*60*24));
+		alert(result);
+	}
+
+	function answer09(){	//댓글 만들때 자주 쓰니까 잘 알아둘 것.
+		var doc = document.forms[0]
+		var vals = [doc.name.value, doc.age.value, doc.gender.value];
+		var table = document.getElementById("createTable");
+
+		var tr = document.createElement("tr");
+		for(var i = 0; i < vals.length; i++){
+			var td = document.createElement("td")
+			td.textContent =vals[i];
+			tr.appendChild(td);
+		}
+		table.appendChild(tr);
+	}
+
+	function answer10(){
+		var dan = parseInt(document.getElementById("gugudan").value);
+		var res = ""; //결과를 만들어줄 것을 미리 만들어준다
+
+		for(var i = 1; i <10 ;i++){
+			res += dan +" * "+i+" = "+(dan*i)+"\n";
+		}
+		alert(res);
+	
+	}
+
+</script>
+
+
+</head>
+<body>
+
+	<h1>주의사항</h1>
+	<h2>1. jQuery를 사용하지 말 것!</h2>
+
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 1</legend>
+		<h3>input 태그에 값을 입력하고 버튼을 클릭하였을 때, 값이 숫자인지 아닌지 출력해 주세요.</h3>
+		<h5>(값이 숫자라면 : "숫자입니다." 숫자가 아니면 "숫자가 아닙니다." 를 alert으로 출력)</h5>
+		<input type="text" id="q01_num"/> <button onclick="answer01();">판별</button>
+		<span id="q1"></span>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 2</legend>
+		<h3>input 태그에 이름을 입력하고 버튼을 클릭하였을 때, 해당 이름이 존재하는지 여부를 출력해 주세요.</h3>
+		<h5>(이름이 있으면 : "이름이 있습니다." 없으면 "이름이 없습니다." 를 alert으로 출력)</h5>
+		<input type="text" /> <button onclick="answer02();">판별</button><br/>
+		<pre id="nameList">홍길동 이순신 김선달 유재석 강호동</pre>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 3</legend>
+		<h3>라디오버튼을 클릭하면 원하는 사이트를 팝업창으로 연결해 주세요.</h3>
+		<h5>(새창, 새탭 등도 허용)</h5>
+		<input type="radio" name="rdo" value="naver" onclick="answer03();"/>네이버<br/>
+		<input type="radio" name="rdo" value="google" onclick="answer03();"/>구글<br/>
+		<input type="radio" name="rdo" value="w3schools" onclick="answer03();"/>w3schools<br/>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 4</legend>
+		<h3>전체선택버튼을 클릭하면 체크항목을 모두 체크하거나 모두 해제해 주세요.</h3>
+		<input type="checkbox" name="all" onclick="answer04(this.checked);"/>전체선택<br/>
+		<input type="checkbox" name="subject" />Java<br/>
+		<input type="checkbox" name="subject" />DataBase<br/>
+		<input type="checkbox" name="subject" />Web<br/>
+		
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 5</legend>
+		<h3>1~20사이의 랜덤한 숫자를 생성해서 input 태그 안에 입력해주세요.</h3>
+		랜덤:<input type="text" readonly="readonly" id="randomInput"/> <button onclick="answer05();">생성</button>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 6</legend>
+		<h3>셀렉트 태그를 사용하여, 원하는 페이지로 이동해 주세요.</h3>
+		<select id="locationSelect" onchange="answer06();">
+			<option>--선택--</option>
+			<option value="naver">네이버</option>
+			<option value="google">구글</option>
+			<option value="w3schools">w3schools</option>
+		</select>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 7</legend>
+		<h3>숫자를 정렬해서 alert으로 출력해 주세요.</h3>
+		숫자 : <span id="numVal">1,4,2,3,11,32,27,5</span>
+		<button onclick="answer07();">정렬</button>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 8</legend>
+		<h3>개강일부터 오늘까지의 날짜를 alert으로 출력해 주세요. (getTime() 메서드 사용)</h3>
+		개강일 : <input type="date" id="startDate"/> <button onclick="answer08();">날짜</button>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 9</legend>
+		<h3>input 태그에 입력된 값으로 table을 생성해 주세요</h3>
+		<form>
+			이름:<input type="text" name="name"/><br/> 
+			나이:<input type="text" name="age"/><br/>
+			성별:<input type="text" name="gender"/><br/>
+		</form>
+			<button onclick="answer09();">생성</button>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>이름</th>
+					<th>나이</th>
+					<th>성별</th>
+				</tr>
+			</thead>
+			<tbody id="createTable">
+			</tbody>
+		</table>
+	</fieldset>
+	
+	<!--------------------------------------------------------------------------------------------------------->
+	<fieldset>
+		<legend>문제 10</legend>
+		<h3>원하는 구구단을 입력하고, alert으로 해당 단을 출력하세요.</h3>
+		<h5>(입력 예: 3 -> 3*1 = 3 3*2 = 6 ...)</h5>
+		<input type="text" id="gugudan" /> <button onclick="answer10();">출력</button>
+	</fieldset>
+	
+</body>
+</html>

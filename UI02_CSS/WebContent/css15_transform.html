@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type ="text/css">
+
+div{
+	width: 200px;
+	height: 200px;
+	background: red;
+	color: white;
+	font-size: 30pt;
+	word-wrap : break-word;	
+}
+#tlate{
+	transform : translate(50px, 50px);
+}
+#trotate{
+	transform : rotate(30deg);
+}
+#tscale{
+	transform : scale(0.6, 0.6);
+}
+#tskew{
+	transform : skew(20deg, 20deg);
+}
+#tran{
+	transition : width 0.5s, background 1.5s linear, transform 1.5s;	
+}
+#tran:hover{
+	width: 800px;
+	background: blue;
+	transform : translate(300px, 0px);
+}
+li{
+	width: 500px;
+	background: gray;
+	margin-bottom: 3px;
+	font-size: 30px;
+	font-weight: gold;
+	list-style-type: none;
+	transition : width 1s linear, color 1s linear, letter-spacing 1s;
+	cursor : pointer;
+}
+li:hover{
+	width: 800px;
+	color : red;
+	letter-spacing: 5px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+	<h1>translate</h1>
+	<div id = "tlate">translate(x,y) : 위치이동</div>
+	
+	<h1>rotate</h1>
+	<div id = "trotate">rotate(deg) : 회전</div>
+	
+	<h1>scale</h1>
+	<div id = "tscale">scale(x,y) : 크기</div>	
+	
+	<h1>skew</h1>
+	<div id = "tskew">skew(deg,deg) : 변형</div>		
+
+	<h1>속성전환</h1>
+	<div id = "tran">transition</div>		
+
+	<div>
+		<h1>moving menu</h1>
+		<ul>
+			<li>COMPANY</li>
+			<li>PRODUCT</li>
+			<li>SERVICE</li>
+			<li>COMMUNITY</li>
+		
+		</ul>
+	</div>	
+
+
+	
+</body>
+</html>

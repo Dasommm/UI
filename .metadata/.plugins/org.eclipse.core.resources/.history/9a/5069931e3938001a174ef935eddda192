@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form action="\testw">
+		<fieldset>
+			<legend>납품자정보</legend>
+			<table>
+				<tr>
+					<td>1.납품자명</td>
+					<td><input type= "text" placeholder="name"></td>
+				</tr>
+				<tr>
+					<td>2.email</td>
+					<td><input type= "text" placesholder="answer@naver.com"></td>
+				</tr>
+				<tr>
+					<td>3.홈페이지</td>
+					<td><input type= "text" placeholder="http://"></td>
+				</tr>
+			</table>
+		
+		</fieldset>
+	
+	
+	
+	</form>
+
+</body>
+</html>

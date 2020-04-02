@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        function c1(){
+            var doc = $("input:text").val();
+            alert(doc);
+            /*
+            JS : .value()
+            JQ : .val()
+            */
+        }
+
+        function c2(){
+            var doc = $("input:radio").val();
+            $("#a").html(doc);
+            /*
+            JS : innerHTML()
+            JQ : html()
+            */
+        }
+        function c3(){
+            $("#a").html($("input:checkbox").val());
+        }
+
+    
+
+
+        // jquery로 바꿔보기
+        $(function(){
+            var selElement = document.getElementsByTagName("select")[0];
+            selElement.onchange = function(){
+                alert(selElement.options[selElement.selectedIndex].value);
+            }
+        });
+
+    
+    </script>
+
+
+</head>
+<body>
+    <form action="">
+        <input type="text">
+        <input type="button" value="선택" onclick="c1();"/>
+        <br/>
+       
+        <input type="radio" value="19/10/30~" onclick="c2();">19/10/30~
+        <br/>
+         
+        <input type="checkbox" value="빅데이터" onclick="c3();"/> 빅데이터 UI
+        <div id="a"></div>
+    </form>
+
+    <select name="" id="">
+        <option value="1">one</option>
+        <option value="2">two</option>
+        <option value="3">three</option>
+    </select>
+    
+</body>
+</html>

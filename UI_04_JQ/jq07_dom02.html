@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+        $("div").find("b").css({"font-size": "30pt","color":"red"});
+        $("div").children("#chd").text("2.children()");
+        $("P").parent().css("background-color","skyblue");
+        $("#chd").parents("div").css("background-color","white");
+        $("p").eq(1).next().css({"font-size":"30pt","color":"blue"});
+
+    });
+
+    </script>
+</head>
+<body>
+
+    <p>
+        <b>find("selector") : 
+            선택한 엘리먼트의 자손들 중에, 탐색하고자 하는 엘리먼트를 검색
+        </b><br>
+        <b>children("selector") : 
+            선택한 엘리먼트의 자식요소들 중에 탐색하고자 하는 엘리먼트를 검색
+            <!--childredNode는 모든 자식요소 선택-->
+        </b><br>
+        <b>parent() / parents("selector") :
+            선택한 엘리먼트의 부모요소를 검색/ parents는 모든 부모들
+        </b><br>
+        <b>next("selector") :
+            선택한 엘리먼트 다음에 나오는 요소를 검색
+        </b>   
+    </p>
+    <div>
+        <p><b>1</b></p>
+        <p id="chd">2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+    $(function(){
+        $("div > p").eq(0).click(function(){
+            $("pre b").eq(0).toggle();
+        });
+
+        $("div >p").eq(1).click(function(){
+            $("pre b").slice(1,2).toggle(); //slice(start index(inclusive),end index(exclusive))
+        });
+
+        $("div > p").eq(2).click(function(){
+            //$("pre b").first().css("color","red");
+            //$("pre b").eq(2).toggle(); => 묶어서 써보자
+            $("pre b").first().css("color","red").text("연결하자").end()    //end만나면 다시 $ selector로 온다
+                    .eq(2).toggle();
+        });
+
+        $("div > p").eq(3).click(function(){
+            $("pre b").last().toggle();
+        });
+
+    });
+
+</script>
+
+
+</head>
+
+<body>
+    <pre>
+        <b>eq() : 선택한 엘리먼트들 중에 인덱스로 탐색</b>
+        <b>slice() : 선택한 엘리먼트들 중에 인덱스 길이로 탐색</b>
+        <b>first() : 선택한 엘리먼트들 중에 첫번째 요소</b>
+        <b>last() : 선택한 엘리먼트들 중에 마지막 요소</b>
+    </pre>
+    
+    <div>
+        <p>1.eq()</p>
+        <p>2.slice()</p>
+        <p>3.first()</p>
+        <p>4.last()</p>
+    </div>
+
+</body>
+</html>

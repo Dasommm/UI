@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type ="text/javascript">
+	
+	//전역변수
+	var var01 = 10;
+	
+	function test01(){
+		var01 = var01 +5; //function이 호출될때마다 5가 추가될것이다.
+		document.getElementById("v01").innerHTML = "<b style='color : red; background :yellow;'>"+ var01+"</b>";	
+	}
+	function test02(){
+		var var02 = var01+100;
+		document.getElementById("v02").innerHTML = "<b style = 'color : red; background : yellow;'>" +var02 +"</b>";
+		
+	}
+	function test03(){
+		var var03 ="문자";
+		alert(var03 +":"+typeof(var03));
+		
+		var03 =5;
+		alert(var03 +":"+typeof(var03));
+		
+		var03 =true;
+		alert(var03 +":"+typeof(var03));
+		
+		var03 =null;
+		alert(var03 +":"+typeof(var03));
+		
+		var03 =[1,3,5,7,9];
+		alert(var03 +":"+typeof(var03));
+		
+		var03 =function(){
+		alert("타입변환");
+		}
+		
+		alert(var03 +":"+typeof(var03));
+		
+		var03();
+		
+	}
+	
+
+</script>
+
+</head>
+<body>
+
+	<h1>변수의 사용</h1>
+
+	<dl>
+		<dt>변수 선언 규칙</dt>
+			<dd>1. 대소문자 구분한다.</dd>
+			<dd>2. 영문, $, _로 시작해야 한다.</dd>
+			<dd>3. 영문, $, _, 숫자를 포함 할 수 있다.</dd>
+			<dd>4. 키워드나 예약어를 사용할 수 없다.</dd>
+
+		<dt>변수의 범위</dt>
+			<dd>1. 전역변수 : window 객체에 포함되는 변수로
+				다른 함수들에서 공용으로 사용할 수 있다.(값이 유지 됨)
+				<button onclick="test01();">확인</button></dd>
+			<dd id = "v01"></dd>
+			
+			<dd>2. 지역변수  : 함수나 객체 내부에서 선언되고 
+				실행이 종료되면 사라짐
+				<button onclick ="test02();">확인</button></dd>
+			<dd id = "v02"></dd>
+
+		<dt>변수 선언 및 저장</dt>
+			<dd>1. var 키워드를 사용하여 변수 선언</dd>
+			<dd>2. 변수의 타입은 저장되는 값의 타입에 따라 결정된다.
+				<button onclick ="test03();">확인</button></dd>
+			
+		<dt>타입의 종류</dt>
+			<dd>1. 문자(String)</dd>
+			<dd>2. 숫자(Number)</dd>
+			<dd>3. 논리(Boolean)</dd>
+			<dd>4. 널(Null)</dd>
+			<dd>5. 객체 </dd>
+			<dd>6. 함수</dd>
+			
+
+	</dl>
+
+
+
+</body>
+</html>

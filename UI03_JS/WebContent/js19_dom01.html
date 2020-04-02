@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<script type="text/javascript">
+
+function searchPar(){
+    var child02 = document.getElementsByTagName("p")[1];
+    var parent = child02.parentNode;    //child02를 감싸고 있는 div 태그(parentNode)
+    alert(parent.nodeName);
+    parent.style.backgroundColor = "pink";
+}
+function searchChi(){
+    var div = document.getElementsByTagName("div"); //노드리스트로 반환된다
+    var divChildren= div[0].childNodes; //div 노드리스트 중에 0번지의 자식 노드들
+    alert(divChildren[5].tagName);
+    divChildren[5].style.backgroundColor="skyblue";
+    // tag와 tag 사이의 공백이 텍스트로 카운트 되기 때문에 child03이 5번지가 된다
+    //만약<div><p>child01</p><p>child02</p><p>child03</p></div>
+    //이렇게 된다면 child03은 2번지가 된다
+}
+function bgcolor(){
+    var test01 = document.getElementsByTagName("p")[3]; //test01을 먼저 찾는다
+    var parent = test01.parentNode;
+    alert(parent.nodeName);
+    parent.style.backgroundColor = "orange";
+}
+function ftsize(){
+    var div = document.getElementsByTagName("div")[2]; //div 찾는다
+    var divChildren = div.childNodes[3];
+    alert(divChildren.tagName);
+    divChildren.style.fontSize = "20pt";
+}
+
+</script>
+
+</head>
+<body>
+
+    <h1>부모탐색, 자식탐색</h1>
+    
+    <div>
+        <p>child01</p>
+        <p>child02</p>
+        <p>child03</p>
+    </div>
+    
+    <button onclick="searchPar();">부모탐색</button>
+    <button onclick="searchChi();">자식탐색</button>
+
+
+    <!--문제-->
+    <div>
+        <p>test01</p>
+        <p>test02</p>
+    </div>
+    <div>
+        <p>test03</p>
+        <p>test04</p>
+    </div>
+
+    <h3 onclick="bgcolor();">1."test01 태그를 포함한 부모태그"의 배경색을 적용하자</h3><!-- parentNode사용-->
+    <h3 onclick="ftsize();">2."마지막 div"에 포함된 마지막 p태그의 폰트 크기를 20pt 적용하자</h3><!--childnodes 사용-->
+
+</body>
+</html>

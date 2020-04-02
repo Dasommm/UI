@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $("div:eq(0)").css({"border":"1px solid red", "width" :"400px", "heigth":"200px"})
+            $("#view").css("border","1px solid blue").css("width","400px").css("height","100px");
+        });
+    
+        function a1(){
+            //[java script] document.getElementsByName("span")-> css 불러와서 for로 돌면서 컬러를 입혀라.
+            // span 태그가 있는 것들을 모두 컬러를 레드로 바꿔라.
+            $("span").css("color","red");
+            // id = view 레드로 바꿔라.
+            $("#view").text('$("span").css("color","red");');
+        }
+
+        function a2(){
+            //$대신 JQuery로 해도 상관없다.
+            jQuery("#t1").css("color","blue");
+            jQuery("#view").text('$("#t1").css("color","blue");');
+        }
+
+        function a3(){
+            //class 선택하여
+            $(".t2").css("color","green");
+            $("#view").text('$(".t2").css("color","green");');
+        }
+
+        function a4(){
+            //p c선택
+            $("li span").css("color","yellow");
+            $("#view").text('$("li span").css("color","yellow");');
+        }
+
+        function a5(){
+            //p &gt; c 선택
+            $("li>span").css("color","aquamarine");
+            $("#view").text('$("li > span").css("color","aquamarine");');
+        }
+
+        function a6(){
+            //nth-child 선택
+            $("li:nth-child(3)").css("background-color","pink");
+            $("#view").text('$("li:nth-child(3)").css("background-color","pink");');
+            //odd : 홀수 , even : 짝수 , 숫자 : n번째 
+        }
+
+        function a7(){
+            //:first-child로 선택하기
+            $("li:first-child").css("background-color","gray");
+            $("#view").text('$("li:frist-child").css("background-color","gray");');
+        }
+
+        function a8(){
+            //:last-child 선택
+            $("li:last-child").css("background-color","purple");
+            $("#view").text('$("li:last-child").css("background-color","purple");');
+        }
+
+        function cls(){
+            $("*").css("color","").css("background-color","");
+            $("#view").text("");
+            
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <h1>selector 표현식</h1>
+
+    <div>
+        <ul>
+            <li><span>tag로 선택하기 </span></li>
+            <li id="t1"> id로 선택하기 </li>
+            <li class="t2"> class로 선택하기</li>
+            <li><span> parent child로 선택하기 </span></li>
+            <li><b><span>parent &gt; child</span></b>로 선택하기</li>
+            <li>:nth-child(n/odd/even)로 선택하기</li>
+            <li>:first-child로 선택하기</li>
+            <li>:last-child로 선택하기</li>
+        </ul>
+    </div>
+    <br/>
+    <div>
+        <button onclick="a1();">태그선택(span)</button>
+        <button onclick="a2();">id선택(t1)</button>
+        <button onclick="a3();">class선택(t2)</button>
+        <button onclick="a4();">p c선택</button>
+        <button onclick="a5();">p &gt; c 선택</button>
+        <button onclick="a6();">nth-child 선택</button>
+        <button onclick="a7();">first-child 선택</button>
+        <button onclick="a8();">last-child 선택</button>
+        <br/>
+        <button onclick="cls()">clear</button>
+        
+    </div>
+
+    <h2>코드 내용</h2>
+    <div id="view"></div>
+
+
+
+
+</body>
+</html>

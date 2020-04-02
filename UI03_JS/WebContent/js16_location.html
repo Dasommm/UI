@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+    function locationTest(){
+       // location.href="https://www.naver.com";
+        //location.assign("https://www.google.com");  //location.href와 같다
+        //location.replace("https://www.daum.net");   // 전단계 이력X
+        //index -> js_location -> daum으로 이동하는게 아니라, js_location 페이지 자체를 replace한다
+        location.reload();  //새로고침. 클라이언트가 서버에게 요청(request)한다
+                            //버튼 누를때마다 다시 요청한다
+        
+    }
+
+
+
+    
+    </script>
+
+
+</head>
+<body>
+
+    <a href="https://www.iei.or.kr">페이지 이동</a>
+    <br>
+
+    <button onclick="locationTest();">페이지 이동</button>
+    
+</body>
+</html>

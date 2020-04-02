@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>윈도우 연습01</title>
+
+<style type="text/css">
+	#regist {
+		border: 1px solid black;
+		background: pink;
+		position: absolute;
+		top: 200px;
+		left: 500px;
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+	function openWin() {
+		var url = "js15_window02.html";
+		var title = "";
+		var prop = "top=200px,left=600px,width=500px,height=500px";
+		window.open(url, title, prop);
+	}
+
+	function registForm() {
+		document.getElementById("regist").style.display = "block";
+		//block형태로 만들어야 한다
+		document.body.style.background = "gray";
+
+		var btns = document.getElementsByName("btn");
+		for ( var i in btns) { //for in 문 (향상된 for문)
+		//	for(var i=0;i<btns.length;i++){
+			btns[i].disabled = "disabled";
+			//disabled :사용불가
+		}
+		/* display :none; -> 공간을 차지하지 않는다(만들어지지 않은 상태)
+			visibility : hidden; -> 공간을 차지한다(만들어져있는 상태, 보이지만 않는다) 
+		*/
+		
+	}
+
+	function closeWin() {
+		document.getElementById("regist").style.display = "none";
+		//noen는 안보임 not visible
+		document.body.style.background = "white";
+
+		var btns = document.getElementsByName("btn");
+		//btns라는 배열
+		for ( var i in btns) {
+			btns[i].disabled = "";
+		}
+	}
+
+	function idchk() {
+		alert("중복체크를 확인하세요");
+	}
+
+	function idCheck() {
+		open("js15_window03.html", "", "width=300px,height=300px");
+	}
+</script>
+
+</head>
+<body>
+
+	<h1>window객체</h1>
+	
+	<pre>	<!-- 적혀있는 그대로를 출력해주는 -->
+	프로퍼티
+	 -document
+	 -history
+	 -location
+	 -navigator
+	 -screen
+	 -frames
+	 -parent
+	 -top
+	 -self
+	메서드
+	 -alert()
+	 -confirm()
+	 -prompt()
+	 -back()
+	 -forward()
+	 -setInterval()
+	 -clearInterval()
+	 -setTimeout()
+	 -open()
+	 -close()
+	 -scroll(),scrollBy(), scrollTo() 
+	</pre>
+
+	<div id="f1">
+		<h1>팝업창 만들기</h1>	<!-- 1번지 h1 태그네임 -->
+		<button onclick="openWin()" name="btn">창열기</button>
+		<hr>
+		<h1>회원가입하기(div팝업창)</h1>
+		<button onclick="registForm()" name="btn">회원가입</button>
+	</div>
+
+	<!-- 회원가입폼 시작 -->
+	<div id="regist">
+		<form>
+			<table>
+				<caption>회원가입</caption>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="id" onclick="idchk()" readonly="readonly" /> 
+					<input type="button" value="중복체크" onclick="idCheck()" /></td>
+				</tr>
+				<tr>
+					<td>패스워드</td>
+					<td><input type="password" name="pwd" style="color: red;"/></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="button" value="확인" onclick="closeWin()" /></td>
+					<!-- colspan 셀병합 -->
+				</tr>
+			</table>
+		</form>
+	</div>
+	<!-- 회원가입폼 종료 -->
+
+	<br/><br/><br/>
+	<iframe name="myframe"></iframe>
+
+</body>
+</html>

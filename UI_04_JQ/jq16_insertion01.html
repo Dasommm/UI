@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+div{
+    border: 1px solid green;
+
+}
+.prepend{
+    border: 1px dotted red;
+
+}
+.append{
+    border: 1px dotted blue;
+}
+
+
+</style>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $("button:eq(0)").click(function(){
+            $("div").prepend($("<p>").addClass("prepend").text("prepend"));
+        });
+        //$().prepend : 앞에 추가
+
+        $("button:eq(1)").click(function(){
+            $("div").append($("<p>").addClass("append").text("append"));
+        });
+
+        $("button:eq(2)").click(function(){
+            $("div").html("<b>html 요소를 변경</b>");
+            //html의 b태그가 실행
+        });
+
+        $("button:eq(3)").click(function(){
+            $("div").text("<b>text 요소를 변경</b>");
+            //텍스트 그대로 표현. b태그 기능 안됨
+        });
+
+    });
+    
+
+</script>
+
+
+
+</head>
+<body>
+
+    <button>prepend</button>
+    <button>append</button>
+    <button>html</button>
+    <button>text</button>
+    
+    <div>
+        <p>내부삽입1</p>
+        <p>내부삽입2</p>
+    </div>
+    
+</body>
+</html>
+<button></button>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        .box{
+            border: 2px solid red;
+        }
+
+        #menu{
+            background-color: skyblue;
+            text-align: right;
+        }
+
+        a{
+            text-decoration: none;
+            font-size: 20pt;
+        }
+        #menu div{
+            display: inline-block;
+            margin-right: 10px;
+        }
+    
+    </style>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            var $box=$("<div>").addClass("box");    //div 태그에 box클래스를 추가
+            $(".sub_menu:first").wrap($box);    // 선택한 애를 box로 감싸겟다
+                //<div class ='box'> (.sub_menu:first) </div>
+
+            $(".sub_menu").click(function(){    // 그 중에 하나(div)를 누른다면
+                $(".sub_menu").each(function(){ //each는 반복해서 모두를 확인할거다
+                    if($(this).parent().is(".box")){    // 선택한거가 부모태그에 box가 있으면 ==> box에 감싸져있으면
+                        //  감싸고 있는게 box인지 아닌지 
+                        $(this).unwrap(".box"); // 그렇다면 박스를 없애버린다
+                        // each를 돌면서 확인 중인 sub_menu들
+                    }
+                });
+                $(this).wrap($box); // 그리고 선택한 것만 다시 box로 감싸라
+                //여기서의 this는 내가 선택한 sub_menu
+            });
+
+            $("a").wrapInner("<span></span>");  //a태그의 자식요소를 span으로 감싸라
+
+            $("pre").wrapAll("<b></b>");    //묶어서 한번에 모두다 감싸라
+
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+
+    <div id="menu">
+        <div class="sub_menu">
+            <a href="#"><span>국비지원</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">훈련검색</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">기관검색</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">질문답변</a>
+        </div>
+        <div class="sub_menu">
+            <a href="#">자격증</a>
+        </div>
+
+
+    </div>
+
+    <pre>a</pre>
+    <pre>b</pre>
+    <pre>c</pre>
+    <pre>d</pre>
+
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script type="text/javascript">
+
+function gugudan(){
+    var i = 1;
+    var j = 1;
+
+    for(i =  1; i < 10 ; i++){
+        document.getElementById("res").innerHTML += "<br><" + i + "단> <br>";
+        for(j = 1 ; j < 10 ; j++){
+            document.getElementById("res").innerHTML += i + "*" + j + "=" + i*j + "<br>";            
+        }
+    }
+}
+
+function gugu(){
+
+    
+
+
+
+}
+
+/*
+function gugudan(){
+var res = "<br>";
+ for(var i = 2 ; i <10 ; i++){
+     res += i + "단<br>";
+     for(var j = 1 ; j <10 ; j++){
+         res += i + "*" + j + "=" + (i*j) + "<br>";
+     }
+ }
+ document.getElementById("res").innerHTML = res;
+}
+*/
+
+
+</script>
+
+</head>
+<body>
+
+    <h1>구구단</h1>
+    <h3>1.구구단 전체출력</h3>
+    <input type="button" value="클릭" onclick="gugudan();">
+
+    <h3>2.구구단 선택 출력</h3>
+    <p>prompt를 사용하여, 입력받은 단만 출력하자</p>
+    <input type="button" value="클릭" id="gugu();">
+
+    <!--출력은 자유 (span tag or alert or console)-->
+    <span id="res"></span>
+
+
+</body>
+</html>

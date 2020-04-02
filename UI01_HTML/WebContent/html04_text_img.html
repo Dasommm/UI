@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>text</h1>
+	<p>
+		<b>진하게(&lt;b&gt;)</b><br/>
+		<strong>진하게(&lt;strong&gt;)</strong><br/>
+		<em>기울임(&lt;em&gt;)</em><br/>
+		<i>기울임(&lt;i&gt;)</i><br/>
+		<small>작은 텍스트 표시, 코멘트(&lt;small&gt;)</small><br/>
+		윗<sup>첨자(&lt;sup&gt;)</sup><br/>
+		아래<sub>첨자(&lt;sub&gt;)</sub><br/>
+		<ins>내용 추가(&lt;ins&gt;)</ins><br/>
+		<del>내용 삭제(&lt;del&gt;)</del><br/>
+	</p>
+	
+	<hr>
+	<h1>img</h1>
+	
+	<img alt = "그림이 안나올 때 대신 나올 설명 " src="image/lemon.jpg"
+	width ="200px" height="200px" title = "마우스 오버될 시 나올 설명"/>	
+		
+	<!-- 
+	px : 픽셀 (해상도 별 상대크기)
+	pt : 포인트(1pt = 0.72인치)
+	%, em : 지정/상속 등에 대한 백분율(상대크기)
+	 -->	
+		
+	<h3>이미지에 링크걸기</h3>	
+		<a href = "index.html">
+			<img alt ="설명" src ="image/lemon.jpg" width ="100px" height = "100px"/>
+		</a>
+		
+		
+	<h3>이미지 맵</h3>	
+	<img alt ="설명" src = "image/lemon.jpg" width = "100px" height = "100px" usemap ="#my"/>	
+	<map name = "my">
+		<area alt ="" shape = "rect" coords = "25, 25, 75,75"
+		href = "index.html" title = "가즈아!"/>
+	
+	</map>	
+		
+		
+</body>
+</html>

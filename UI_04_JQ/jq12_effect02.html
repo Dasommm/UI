@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+
+        a{
+            font-weight: bold;
+            color: black;
+        }
+        #box{
+            background: skyblue;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+    
+    </style>
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $(".run").click(function(){
+                $("#box").animate({opacity :"0.1",left : "400px"},1000)
+                        .animate({opacity : "0.4", top:"160px", width :"20px",height:"20px"} ,"slow")
+                        .animate({opacity :"1",backgroundColor: "#111111",left : "0px",width:"100px",height:"100px"},"slow")
+                        .animate({top:"0px"},fast).slideUp().slideDown("slow");
+                        //애니메이션들이 끝나자마자 chaining해서 이어줬다
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <p><a href="#" class="run">Run</a></p>
+    <div id="box"></div>
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style type="text/css">
+
+    *{margin: 0px;
+    padding: 0px;}
+    table{width: 400px;}
+    table tr:nth-child(odd){background-color: orange;}
+    fieldset{width: 400px;}
+    body{width: 1000px; margin: 50px auto;}
+
+</style>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        $("#emp_search").click(function(){
+            var empid = $("input[name=empid]").val();
+        
+            if(!isNaN(empid) && empid.length >2){   //숫자이고, 길이가 3자리수이라면
+                $.ajax({
+                    url:"emplist.xml", 
+                    method: "get",  // post방식도 된다. type : "get"도 동일
+                    //get은 head부분에 저장이 되어서 주소표시창에 뜨고
+                    //post방식은 body부분에 저장되어서 주소표시창에 저장이 안되어 action부분으로 보내준다
+                    async:true,     //비동기(false=동기)
+                    dataType:"xml", //전송받는 데이터의 타입
+                    //data : ...., //전송할 데이터(값)
+                    success:function(msg){  //통신 성공하면 실행
+                        //console.log(msg);
+                        var empinfo =$(msg).find("EMPLOYEE_ID:contains("+empid+")").parent(); //xml파일에서 empid의 부모를 가져온다 
+                        if((empinfo).is("ROW")){
+                            $("table input").each(function(i){
+                                $(this).val($(empinfo).children().eq(i).text());
+                            });
+                        }else{
+                            alert("검색대상이 존재하지 않습니다");
+                        }
+                    },
+                    error:function(request,status,error){   // 통신 실패하면 실행
+                        alert("code:" +request.status+"\n"+
+                            "message:"+request.responseText+"\n"+
+                            "error"+error);
+                    }
+                    // 조회를 눌러도 주소표시창이 바뀌지 않고 내용만 바뀐다
+                });
+            
+            }else {
+                alert("사원번호를 제대로 입력해주세요");                
+            };         
+        
+        });
+    });
+    //asynchronous JavaScript And Xml (AJAX) // 비동기 통신
+    //비동기가 좋은 이유? 다른 데이터가 필요할 때 계속 바뀌어야한다
+    //비동기일 경우에는 페이지가 바뀌지 않고 내용만 바뀌기 때문에 좋다 ex)Map
+
+
+</script>
+
+
+</head>
+<body>
+
+    <h1>데이터 가져오기</h1>
+    
+    <fieldset>
+        <legend>사원정보 조회</legend>
+        <input type="text" name="empid">
+        <input type="button" id="emp_search" value="조회">
+
+    </fieldset>
+    <table>
+        <tr>
+            <th>사원번호</th>
+            <td><input type="text" name="enum"></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td><input type="text" name="lastname"></td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <th>전화번호</th>
+            <td><input type="text" name="phone"></td>
+        </tr>
+        <tr>
+            <th>입사일</th>
+            <td><input type="text" name="hiredate"></td>
+        </tr>
+
+    </table>
+
+    <!--참고 : https://api.jquery.com/jQuery.ajax/ -->
+
+</body>
+</html>

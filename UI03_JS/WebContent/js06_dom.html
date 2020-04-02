@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    
+        function searchQS(){
+            //CSS 선택자
+            var doc = document.querySelectorAll("#test");   // 배열로 반환(all이기 때문에 -여러개)
+            doc[0].innerHTML = "querySelectorAll(css 선택자)";
+
+            var doc2 = document.querySelector("#test");
+            doc2.style.color = "red";
+        }
+        function searchId(){
+            var doc = document.getElementById("test");  //node로 리턴
+            doc.innerHTML = "id로 탐색합니다.";
+            doc.style.color = "blue";
+        }
+        function searchName(){
+            var doc = document.getElementsByName("test02");
+            doc[1].value = "name 속성으로 엘리먼트 탐색";
+        }
+        function searchTagName(){
+            var doc = document.getElementsByTagName("p");
+            doc[3].style.color = "green";
+            doc[3].innerHTML = "tagName으로 탐색";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <p onclick="searchQS();">DOM 탐색 메서드</p>
+
+    <p id = "test" onclick="searchId();">1. 엘리먼트의 id로 탐색 :
+        엘리먼트 하나를 선택(중복 불가) -> 반환 : 값 하나</p>
+
+    <p onclick="searchName();">2. 엘리먼트의 name으로 탐색 : 
+        엘리먼트 여러개를 선택 -> 반환 : 배열(nodeList)<br/>
+        <input type="text" name = "test02"/><br/>   <!-- id 는 유일한 하나, name은 여러개 가질 수 있음-->
+        <input type="text" name="test02" /><br />
+        <input type="text" name="test02" /><br />
+
+    </p>
+
+    <p onclick="searchTagName();">3. 엘리먼트의 tag name으로 탐색 :
+        엘리먼트 여러개를 선택 -> 반환 : 배열(nodeList)
+    </p>
+    
+</body>
+</html>

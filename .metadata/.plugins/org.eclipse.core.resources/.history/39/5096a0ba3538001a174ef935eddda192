@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>서브 메뉴가 펼쳐지는 네비게이션 만들기</h2>
+	<hr>
+	<ul id = "navi">
+		<li><a href ="#">HOME</a></li>
+		<li><a href ="#>웹개발</a></li>
+		<li><a href = "#">게시판</a></li>
+		<li><a href ="views/test/productForm.html">상품주문서</a></li>
+	</ul>
+
+	<header>
+		<h1>HTML5&CSS</h1>
+		<nav>
+			<ul>
+				<li>HTML5</li>
+				<li>CSS3</li>
+				<li>JAVASCRIPT</li>
+				<li>JQUERY</li>
+				<li>HTML5 API</li>
+			</ul>
+		</nav>
+	</header>
+	<hr>
+	<section>
+	이 영역은 소제목과 내용으로 구성되는 영역입니다.
+		<article>
+			<img alt="img" src="resources/images/flower1.jsp">
+		</article>
+		section안에 article안에 img 태그를 사용하였습니다.
+	</section>
+	<hr>
+	<footer>
+	이 문서는 HTML5를 기준으로 작성되었습니다.<br>
+	이 영역은 FOOTER 영역입니다.
+	</footer>
+
+
+</body>
+</html>

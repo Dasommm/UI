@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        
+    img{
+        width: 200px;
+        height: 200px;
+    }   
+
+    </style>
+
+    <script type = "text/javascript" src ="js/jquery-3.4.1.js"></script>
+    <script type = "text/javascript">
+    /*
+    jquery 기본 작성법 : css selector 표현식
+    작성 예) 
+        $("selector").메서드();
+        $("p").css("color", "red");
+
+    함수 바깥에서 jquery 사용할 때 2가지 방법
+    $(function(){
+        //작성
+    });
+
+    $(document).ready(function(){
+        //작성
+    });
+
+    */
+    function highlight(){
+        $("#list01 > li").eq(0).css("background-color","skyblue");
+        //eq(0) -> 0번지
+    }
+
+    $(function(){
+        $("img").click(function(){
+            alert("이미지를 클릭했습니다");
+            $(this).hide();
+        });
+    });
+
+    function showImg(){
+        $("img").show();
+    }
+
+    function resizeImg(){
+        // width와 height를 각각 100px로
+       // $("img").css("width","100px").css("height","100px");
+        $("img").css({"width":"100px","height":"100px"});
+    }
+
+    function addImg(){ 
+        //img 태그의 마지막을 찾아서, 그 뒤에 추가
+        $("img").last().after("<img src ='image/img01.png'>");
+    }
+
+    function toggleImg(){
+        // 숨기기/보이기
+        $("img").toggle();
+    }
+    /*
+        jquery는 javascript의 library이다.
+    */
+    
+    </script>
+</head>
+<body>
+
+    <h1>jQuery 시작</h1>
+    <ul id="list01">
+        <li>1.셀렉터 표현식</li>
+        <li>2.DOM탐색 메서드</li>
+        <li>3.이벤드 메서드</li>
+        <li>4.이펙트 메서드</li>
+        <li>5.Ajax</li>
+
+    </ul>
+    <button onclick="highlight();">강조</button>
+
+    <hr>
+
+    <button onclick="showImg();">이미지 보이기</button>
+    <button onclick="resizeImg();">이미지 축소</button> 
+    <button onclick="addImg();">이미지 추가</button>
+    <button onclick="toggleImg();">이미지 숨기기/보이기</button>
+    <br>
+    <div>
+        <img src="image/img01.png" alt="img">
+    </div>
+
+
+</body>
+</html>

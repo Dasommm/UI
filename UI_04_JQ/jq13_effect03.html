@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    
+    .main_menu{width: 300px;}
+    .sub_menu1{cursor: pointer;}
+    .sub_menu2{display: none; cursor: default;}
+    
+    </style>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $("b").click(function(){    //b tag 옆에 있는 li들을 보여주고 싶다
+                //$(this).next().slideToggle();   //다 열린다
+                //$(this).parent().siblings().find("ul").slideUp();   //열려있는 것을 닫고 새로운 것을 다시 열고 싶다
+                //한 줄로 만들기=>
+                $(this).next().slideToggle().end().parent().siblings().find("ul").slideUp(); 
+            });
+        });
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <p>메뉴 만들기</p>
+    <ul type ="square" class="main_menu">
+        <li class="sub_menu1"><b>1)CSS 셀렉터</b>
+            <ul type ="circle" class="sub_menu2">
+                <li>tag</li>
+                <li>id</li>
+                <li>class</li>
+                <li>parent child</li>
+                <li>parent &gt; child</li>
+                <li>:nth-child</li>
+                <li>:first-child</li>
+                <li>:last-child</li>
+            </ul>
+        </li>
+        <li class="sub_menu1"><b>2)속성 셀렉터</b>
+            <ul type = "circle" class="sub_menu2">
+                <li>[attr]</li>
+                <li>[attr=value]</li>
+                <li>[attr!=value]</li>
+                <li>...</div></li>
+            </ul>
+        </li>
+        <li class="sub_menu1"><b>3)폼 셀렉터</b>
+            <ul type="circle" class="sub_menu2">
+                <li>:input 타입</li>
+            </ul>
+        </li>
+        <li class="sub_menu1"><b>4)사용자 정의 셀렉터</b>
+            <ul type ="circle" class="sub_menu2">
+                <li>:eq(n)</li>
+                <li>:first</li>
+                <li>:last</li>
+                <li>:even</li>
+                <li>:odd</li>
+                <li>:parent</li>
+            </ul>
+        </li>
+    </ul>
+    
+</body>
+</html>
